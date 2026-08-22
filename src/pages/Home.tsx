@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CrimsonLightningBackground } from '@/components/background/CrimsonLightningBackground';
 import { SEO } from '@/components/layout/SEO';
 import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import { About } from '@/components/sections/About';
@@ -17,6 +18,7 @@ export function Home() {
 
   return (
     <>
+      <CrimsonLightningBackground />
       <SEO />
 
       <LoadingScreen
