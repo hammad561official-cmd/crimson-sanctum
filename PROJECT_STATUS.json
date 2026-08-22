@@ -1,0 +1,15 @@
+{
+  "project": "Crimson Sanctum",
+  "version": "0.1.0",
+  "milestone": "The First Chamber",
+  "status": "in-development",
+  "mobileFirst": true,
+  "completed": [
+    "foundation",
+    "loading-screen",
+    "audio-toggle",
+    "intro-animation",
+    "hero-orchestration"
+  ],
+  "next": "first-chamber-cinematic-presentation"
+}

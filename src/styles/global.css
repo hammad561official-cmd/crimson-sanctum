@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Crimson Sanctum — Global Styles
+   Foundation layer only. Section-specific styles live with their components.
+   ========================================================================== */
+
+@layer base {
+  * {
+    @apply border-charcoal-600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-obsidian font-body text-parchment;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-wide text-parchment;
+  }
+
+  /* Visible, deliberate focus ring — never suppressed.
+     Accessibility is a stated, non-optional project requirement. */
+  :focus-visible {
+    outline: 2px solid theme('colors.crimson.ruby');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Respect the visitor's motion preference at the OS level.
+     This is a global safety net; individual components should also
+     branch on `useReducedMotion` for anything scroll- or 3D-driven. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High-contrast support: sharpen the focus ring and border weight
+     when the visitor's OS requests more contrast. */
+  @media (prefers-contrast: more) {
+    :focus-visible {
+      outline-width: 3px;
+    }
+    * {
+      @apply border-parchment-faint;
+    }
+  }
+
+  /* Slim, low-contrast scrollbar consistent with the vault aesthetic */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-charcoal-500 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-crimson-deep;
+  }
+
+  ::selection {
+    background-color: theme('colors.crimson.deep');
+    color: theme('colors.parchment.DEFAULT');
+  }
+}
+
+@layer utilities {
+  /* Visually-hidden-but-accessible content (skip links, labels) */
+  .sr-only-focusable {
+    @apply sr-only;
+  }
+  .sr-only-focusable:focus {
+    @apply not-sr-only fixed top-4 left-4 z-skipLink bg-crimson-deep text-parchment px-4 py-2 rounded;
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "freelance-financial-work",
+    "title": "Freelance Financial Work",
+    "description": "Prepared balance sheets for three companies as freelance financial work.",
+    "type": "freelance"
+  },
+  {
+    "id": "greening-intelligence-conference",
+    "title": "International Conference Presentation",
+    "description": "Presented at an international conference on the topic of Greening Intelligence.",
+    "type": "speaking"
+  }
+]
