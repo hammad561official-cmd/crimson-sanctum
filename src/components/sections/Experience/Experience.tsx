@@ -22,10 +22,12 @@ export function Experience() {
         </header>
 
         <div className="grid gap-4">
-          {experienceData.map((entry) => (
+          {experienceData.map((entry, index) => (
             <article
               key={entry.id}
-              className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-6 backdrop-blur-sm"
+              className={index === 0
+                ? 'edge-lit-card edge-tier-3 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'
+                : 'edge-lit-card edge-tier-2 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'}
             >
               <div className="mb-3 flex items-center justify-between gap-3">
                 <h3 className="font-display text-2xl text-parchment">{entry.title}</h3>

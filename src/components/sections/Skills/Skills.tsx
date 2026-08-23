@@ -25,7 +25,7 @@ export function Skills() {
 
         <div className="grid gap-5 lg:grid-cols-3">
           {Object.entries(groupedSkills).map(([category, entries]) => (
-            <section key={category} aria-label={category} className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-5 backdrop-blur-sm">
+            <section key={category} aria-label={category} className="edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm">
               <h3 className="mb-4 font-display text-xl text-parchment">{category}</h3>
               <ul className="space-y-4">
                 {entries.map((skill) => (

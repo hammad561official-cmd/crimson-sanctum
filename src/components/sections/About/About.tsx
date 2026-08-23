@@ -5,7 +5,6 @@ import { SITE } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 import { fadeUp, fadeUpReduced, staggerContainer } from '@/lib/animationVariants';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { AboutAtmosphere } from './AboutAtmosphere';
 
 const aboutPillars = [
   {
@@ -37,7 +36,6 @@ export function About() {
 
   return (
     <SectionWrapper id="about" label="About" className="relative overflow-hidden">
-      <AboutAtmosphere />
       <Container className="relative">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-ruby/60 to-transparent" />
 
@@ -75,8 +73,8 @@ export function About() {
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 whileHover={prefersReducedMotion ? { y: 0, scale: 1 } : { y: -4, scale: 1.01 }}
                 className={cn(
-                  'group rounded-sm border border-charcoal-500 bg-charcoal-700/40 p-5 backdrop-blur-sm',
-                  'transition-colors duration-300 hover:border-crimson-ruby/80 hover:bg-charcoal-700'
+                  'edge-lit-card edge-tier-2 group rounded-sm border bg-charcoal-700/38 p-5 backdrop-blur-sm',
+                  'transition-colors duration-300 hover:bg-charcoal-700/42'
                 )}
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-sm border border-crimson-ruby/60 bg-crimson-deep/20 text-sm font-medium text-crimson-ruby">

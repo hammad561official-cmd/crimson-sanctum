@@ -24,7 +24,7 @@ export function CurrentWorks() {
           <section aria-label="Current works" className="space-y-4">
             <h3 className="font-display text-2xl text-parchment">Current works</h3>
             {currentWorks.map((work) => (
-              <article key={work.id} className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-5 backdrop-blur-sm">
+              <article key={work.id} className="edge-lit-card edge-tier-2 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm">
                 <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
                   <h4 className="font-display text-xl text-parchment">{work.title}</h4>
                   <span className="rounded-sm border border-crimson-ruby/50 px-2 py-1 font-utility text-[11px] uppercase tracking-[0.2em] text-crimson-ruby">
@@ -39,7 +39,7 @@ export function CurrentWorks() {
           <section aria-label="Future ventures" className="space-y-4">
             <h3 className="font-display text-2xl text-parchment">Future ventures</h3>
             {futureVentures.map((venture) => (
-              <article key={venture.id} className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-5 backdrop-blur-sm">
+              <article key={venture.id} className="edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm">
                 <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
                   <h4 className="font-display text-xl text-parchment">{venture.title}</h4>
                   <span className="rounded-sm border border-crimson-ruby/50 px-2 py-1 font-utility text-[11px] uppercase tracking-[0.2em] text-crimson-ruby">

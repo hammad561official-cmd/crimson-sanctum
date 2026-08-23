@@ -101,6 +101,7 @@ export function CrimsonLightningBackground() {
     let bolt: Bolt | null = null;
     let flash = 0;
     let nextStrike = performance.now() + 2800 + Math.random() * 5200;
+    const rootStyle = document.documentElement.style;
 
     const resize = () => {
       const bounds = canvas.getBoundingClientRect();
@@ -133,6 +134,8 @@ export function CrimsonLightningBackground() {
     const draw = (time: number) => {
       drawAmbient();
 
+      const breathe = 0.03 + (Math.sin(time / 4800) + 1) * 0.015;
+
       if (time >= nextStrike) {
         bolt = createBolt(width, height, isCompact);
         flash = bolt.intensity;
@@ -155,6 +158,8 @@ export function CrimsonLightningBackground() {
         flash *= 0.88;
       }
 
+      rootStyle.setProperty('--storm-pulse', String(Math.min(0.36, breathe + flash * 0.42)));
+
       animationFrame = window.requestAnimationFrame(draw);
     };
 
@@ -164,6 +169,7 @@ export function CrimsonLightningBackground() {
 
     if (prefersReducedMotion) {
       drawAmbient();
+      rootStyle.setProperty('--storm-pulse', '0.03');
     } else {
       animationFrame = window.requestAnimationFrame(draw);
     }
@@ -171,6 +177,7 @@ export function CrimsonLightningBackground() {
     return () => {
       observer.disconnect();
       window.cancelAnimationFrame(animationFrame);
+      rootStyle.setProperty('--storm-pulse', '0');
     };
   }, [prefersReducedMotion]);
 

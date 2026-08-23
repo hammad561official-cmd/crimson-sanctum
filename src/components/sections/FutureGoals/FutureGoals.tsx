@@ -17,7 +17,12 @@ export function FutureGoals() {
 
         <ol className="space-y-4">
           {futureGoalsData.map((goal, index) => (
-            <li key={goal.id} className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-5 backdrop-blur-sm">
+            <li
+              key={goal.id}
+              className={index === 0
+                ? 'edge-lit-card edge-tier-2 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm'
+                : 'edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm'}
+            >
               <p className="font-utility text-[11px] uppercase tracking-[0.22em] text-crimson-ruby">Step 0{index + 1} · {goal.status}</p>
               <h3 className="mt-2 font-display text-xl text-parchment">{goal.title}</h3>
               <p className="mt-2 text-sm leading-7 text-parchment-muted">{goal.detail}</p>

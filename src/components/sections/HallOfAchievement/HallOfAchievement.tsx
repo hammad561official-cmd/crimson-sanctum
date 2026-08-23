@@ -17,7 +17,7 @@ export function HallOfAchievement() {
 
         <div className="grid gap-4 md:grid-cols-2">
           {certificatesData.map((certificate) => (
-            <article key={certificate.id} className="rounded-sm border border-charcoal-500 bg-charcoal-700/35 p-5 backdrop-blur-sm">
+            <article key={certificate.id} className="edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm">
               <h3 className="font-display text-xl text-parchment">{certificate.title}</h3>
               <p className="mt-2 text-sm leading-6 text-parchment-muted">
                 {certificate.issuer || 'Issuer details pending owner confirmation.'}

@@ -39,7 +39,7 @@ export function SectionWrapper({ id, label, className, style, children }: Sectio
       viewport={scrollViewport}
       variants={variants}
       {...(style !== undefined ? { style } : {})}
-      className={cn('relative py-section-y-mobile md:py-section-y-desktop', className)}
+      className={cn('relative exhibition-section py-section-y-mobile md:py-section-y-desktop', className)}
     >
       {children}
     </motion.section>
