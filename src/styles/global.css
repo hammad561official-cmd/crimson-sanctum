@@ -14,6 +14,9 @@
 
   * {
     @apply border-charcoal-600;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
   }
 
   html {
@@ -23,8 +26,6 @@
 
   body {
     @apply bg-obsidian font-body text-parchment;
-    -webkit-user-select: none;
-    user-select: none;
     cursor: default;
     font-feature-settings: 'kern' 1, 'liga' 1;
     text-rendering: optimizeLegibility;
