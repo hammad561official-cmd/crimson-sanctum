@@ -1,0 +1,23 @@
+[
+  {
+    "id": "crimson-sanctum",
+    "title": "Crimson Sanctum",
+    "track": "current",
+    "status": "In development",
+    "summary": "Interactive portfolio experience built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and selective Three.js usage."
+  },
+  {
+    "id": "first-chamber-presentation",
+    "title": "First Chamber cinematic presentation",
+    "track": "current",
+    "status": "Next milestone",
+    "summary": "Planned Hero chamber sequence focused on darkness, crimson beam, restrained particles, name-forging, and monument transformation."
+  },
+  {
+    "id": "future-ventures-slot",
+    "title": "Future ventures",
+    "track": "future",
+    "status": "Awaiting owner input",
+    "summary": "Structured slot reserved for verified future ventures once details are approved."
+  }
+]

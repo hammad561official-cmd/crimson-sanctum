@@ -1,0 +1,20 @@
+[
+  {
+    "id": "complete-first-chamber",
+    "title": "Complete the First Chamber sequence",
+    "status": "Active",
+    "detail": "Implement the cinematic Hero chamber presentation with a typed onComplete handoff."
+  },
+  {
+    "id": "mobile-testing-priority",
+    "title": "Keep Android-first validation",
+    "status": "Ongoing",
+    "detail": "Maintain mobile-first quality checks before desktop polish, as defined in the project log."
+  },
+  {
+    "id": "grow-with-verified-content",
+    "title": "Expand with verified content",
+    "status": "Planned",
+    "detail": "Add future chapters only when personal/project details are confirmed and accurate."
+  }
+]

@@ -25,6 +25,34 @@ export interface CertificateEntry {
   date: string;
 }
 
+export interface SkillEntry {
+  id: string;
+  name: string;
+  category: string;
+  evidence: string;
+}
+
+export interface WorkEntry {
+  id: string;
+  title: string;
+  track: 'current' | 'future';
+  status: string;
+  summary: string;
+}
+
+export interface FutureGoalEntry {
+  id: string;
+  title: string;
+  status: string;
+  detail: string;
+}
+
+export interface ContactContent {
+  headline: string;
+  availability: string;
+  resumePath: string;
+}
+
 export interface SectionMeta {
   id: string;
   label: string;

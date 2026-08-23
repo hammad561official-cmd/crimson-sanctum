@@ -1,10 +1,18 @@
 import { useState } from 'react';
 import { CrimsonLightningBackground } from '@/components/background/CrimsonLightningBackground';
+import { Footer } from '@/components/layout/Footer';
 import { SEO } from '@/components/layout/SEO';
 import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import { About } from '@/components/sections/About';
+import { Contact } from '@/components/sections/Contact';
+import { CurrentWorks } from '@/components/sections/CurrentWorks';
+import { Education } from '@/components/sections/Education';
+import { Experience } from '@/components/sections/Experience';
+import { FutureGoals } from '@/components/sections/FutureGoals';
+import { HallOfAchievement } from '@/components/sections/HallOfAchievement';
 import { IntroAnimation } from '@/components/sections/Hero/IntroAnimation';
 import { Hero } from '@/components/sections/Hero';
+import { Skills } from '@/components/sections/Skills';
 
 /**
  * Home
@@ -33,7 +41,19 @@ export function Home() {
 
       <Hero active={introComplete} />
 
-      {introComplete && <About />}
+      {introComplete && (
+        <>
+          <About />
+          <Experience />
+          <Skills />
+          <CurrentWorks />
+          <Education />
+          <HallOfAchievement />
+          <FutureGoals />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </>
   );
 }

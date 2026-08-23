@@ -1,0 +1,32 @@
+[
+  {
+    "id": "financial-statement-preparation",
+    "name": "Financial statement preparation",
+    "category": "Finance",
+    "evidence": "Prepared balance sheets for three companies as freelance financial work."
+  },
+  {
+    "id": "conference-presentation",
+    "name": "Conference presentation",
+    "category": "Communication",
+    "evidence": "Presented at an international conference on Greening Intelligence."
+  },
+  {
+    "id": "react-typescript",
+    "name": "React + TypeScript",
+    "category": "Technical Stack",
+    "evidence": "Core stack used to build Crimson Sanctum."
+  },
+  {
+    "id": "vite-tailwind",
+    "name": "Vite + Tailwind CSS",
+    "category": "Technical Stack",
+    "evidence": "Current build and styling pipeline for the portfolio."
+  },
+  {
+    "id": "framer-motion",
+    "name": "Framer Motion",
+    "category": "Technical Stack",
+    "evidence": "Used for section transitions and orchestrated motion."
+  }
+]
