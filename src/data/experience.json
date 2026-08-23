@@ -1,14 +1,37 @@
 [
   {
-    "id": "freelance-financial-work",
-    "title": "Freelance Financial Work",
+    "id": "formal-experience-status",
+    "title": "Formal professional experience",
+    "description": "Currently building practical exposure; no formal employment experience has been claimed.",
+    "type": "other",
+    "category": "formal"
+  },
+  {
+    "id": "academic-finance-work",
+    "title": "Academic finance work",
+    "description": "Hands-on finance-oriented academic work focused on applying core concepts in practical scenarios.",
+    "type": "other",
+    "category": "practical"
+  },
+  {
+    "id": "balance-sheet-preparation",
+    "title": "Balance sheet preparation",
     "description": "Prepared balance sheets for three companies as freelance financial work.",
-    "type": "freelance"
+    "type": "freelance",
+    "category": "practical"
   },
   {
     "id": "greening-intelligence-conference",
-    "title": "International Conference Presentation",
-    "description": "Presented at an international conference on the topic of Greening Intelligence.",
+    "title": "International conference participation / presentation",
+    "description": "Participated and presented on the topic of Greening Intelligence.",
     "type": "speaking"
+    ,"category": "practical"
+  },
+  {
+    "id": "academic-project-work",
+    "title": "Academic/project-based work",
+    "description": "Ongoing project-based learning to strengthen practical business and finance capabilities.",
+    "type": "other",
+    "category": "practical"
   }
 ]

@@ -1,20 +1,20 @@
 [
   {
-    "id": "complete-first-chamber",
-    "title": "Complete the First Chamber sequence",
+    "id": "short-term-freelancer-growth",
+    "title": "Short term",
     "status": "Active",
-    "detail": "Implement the cinematic Hero chamber presentation with a typed onComplete handoff."
+    "detail": "Become a fully established freelancer and continue building practical professional experience."
   },
   {
-    "id": "mobile-testing-priority",
-    "title": "Keep Android-first validation",
-    "status": "Ongoing",
-    "detail": "Maintain mobile-first quality checks before desktop polish, as defined in the project log."
-  },
-  {
-    "id": "grow-with-verified-content",
-    "title": "Expand with verified content",
+    "id": "medium-term-career-or-startup",
+    "title": "Medium term",
     "status": "Planned",
-    "detail": "Add future chapters only when personal/project details are confirmed and accurate."
+    "detail": "Either become part of a respectable company in a Finance Manager role or establish and develop a personal startup."
+  },
+  {
+    "id": "long-term-finance-journey",
+    "title": "Long term",
+    "status": "Planned",
+    "detail": "Become fully established in the finance field while continuing to develop Crimson Sanctum as a comprehensive record of achievements, projects, growth, and professional milestones."
   }
 ]

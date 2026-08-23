@@ -4,6 +4,9 @@ import { SectionWrapper } from '@/components/common/SectionWrapper';
 import contactData from '@/data/contact.json';
 
 export function Contact() {
+  const hasEmail = typeof contactData.email === 'string' && contactData.email.length > 0;
+  const hasGithub = typeof contactData.github === 'string' && contactData.github.length > 0;
+
   return (
     <SectionWrapper id="contact" label="Contact" className="relative overflow-hidden">
       <Container className="relative space-y-8">
@@ -19,7 +22,19 @@ export function Contact() {
           </p>
         </header>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center gap-3">
+          {hasEmail && (
+            <Button as="a" href={`mailto:${contactData.email}`} variant="ghost">
+              Email
+            </Button>
+          )}
+
+          {hasGithub && (
+            <Button as="a" href={contactData.github} target="_blank" rel="noreferrer" variant="ghost">
+              GitHub
+            </Button>
+          )}
+
           <Button as="a" href={contactData.resumePath} variant="ghost">
             View Resume
           </Button>

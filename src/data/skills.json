@@ -3,30 +3,174 @@
     "id": "financial-statement-preparation",
     "name": "Financial statement preparation",
     "category": "Finance",
-    "evidence": "Prepared balance sheets for three companies as freelance financial work."
+    "evidence": "Working knowledge developed through practical finance work and ongoing study."
   },
   {
-    "id": "conference-presentation",
-    "name": "Conference presentation",
+    "id": "balance-sheet-preparation",
+    "name": "Balance sheet preparation",
+    "category": "Finance",
+    "evidence": "Applied through freelance financial work involving three companies."
+  },
+  {
+    "id": "basic-financial-analysis",
+    "name": "Basic financial analysis",
+    "category": "Finance",
+    "evidence": "Currently developing through BBA coursework and practical exercises."
+  },
+  {
+    "id": "finance-fundamentals",
+    "name": "Finance fundamentals",
+    "category": "Finance",
+    "evidence": "In-progress academic foundation in finance with continued skill development."
+  },
+  {
+    "id": "deeper-finance-learning",
+    "name": "Developing deeper finance knowledge",
+    "category": "Finance",
+    "evidence": "Focused on continuous learning through coursework and practical application."
+  },
+  {
+    "id": "business-fundamentals",
+    "name": "Business fundamentals",
+    "category": "Business / Management",
+    "evidence": "Core business understanding developed through BBA studies."
+  },
+  {
+    "id": "management-fundamentals",
+    "name": "Management fundamentals",
+    "category": "Business / Management",
+    "evidence": "Developing managerial understanding through current academic work."
+  },
+  {
+    "id": "basic-strategic-thinking",
+    "name": "Basic strategic thinking",
+    "category": "Business / Management",
+    "evidence": "Applied in academic discussions and project-oriented tasks."
+  },
+  {
+    "id": "basic-problem-solving",
+    "name": "Basic problem solving",
+    "category": "Business / Management",
+    "evidence": "Used in coursework and practical finance-focused exercises."
+  },
+  {
+    "id": "business-communication",
+    "name": "Business communication",
+    "category": "Business / Management",
+    "evidence": "Working capability developed through classroom presentations and assignments."
+  },
+  {
+    "id": "marketing-fundamentals",
+    "name": "Marketing fundamentals",
+    "category": "Marketing",
+    "evidence": "Academic exposure through BBA specialization track."
+  },
+  {
+    "id": "deeper-marketing-learning",
+    "name": "Developing deeper marketing knowledge",
+    "category": "Marketing",
+    "evidence": "Currently learning through structured coursework and practice."
+  },
+  {
+    "id": "basic-marketing-concepts",
+    "name": "Basic understanding of marketing concepts",
+    "category": "Marketing",
+    "evidence": "Foundational conceptual knowledge in progress."
+  },
+  {
+    "id": "verbal-communication",
+    "name": "Verbal communication",
     "category": "Communication",
-    "evidence": "Presented at an international conference on Greening Intelligence."
+    "evidence": "Basic ability demonstrated in presentations and class interactions."
   },
   {
-    "id": "react-typescript",
-    "name": "React + TypeScript",
-    "category": "Technical Stack",
-    "evidence": "Core stack used to build Crimson Sanctum."
+    "id": "written-communication",
+    "name": "Written communication",
+    "category": "Communication",
+    "evidence": "Basic written communication developed through academic submissions."
   },
   {
-    "id": "vite-tailwind",
-    "name": "Vite + Tailwind CSS",
-    "category": "Technical Stack",
-    "evidence": "Current build and styling pipeline for the portfolio."
+    "id": "presentation-speaking",
+    "name": "Presentation / public speaking",
+    "category": "Communication",
+    "evidence": "Supported by conference participation and academic presentation practice."
   },
   {
-    "id": "framer-motion",
-    "name": "Framer Motion",
-    "category": "Technical Stack",
-    "evidence": "Used for section transitions and orchestrated motion."
+    "id": "active-listening",
+    "name": "Active listening",
+    "category": "Communication",
+    "evidence": "Developing through collaborative coursework and discussion-based learning."
+  },
+  {
+    "id": "interpersonal-communication",
+    "name": "Interpersonal communication",
+    "category": "Communication",
+    "evidence": "Basic collaborative communication in team and classroom settings."
+  },
+  {
+    "id": "teamwork-collaboration",
+    "name": "Teamwork / collaboration",
+    "category": "Communication",
+    "evidence": "Developing through shared academic and project-based activities."
+  },
+  {
+    "id": "tally",
+    "name": "Tally",
+    "category": "Technical",
+    "evidence": "Basic working use supported by completion of a Tally assessment."
+  },
+  {
+    "id": "microsoft-office",
+    "name": "Microsoft Office",
+    "category": "Technical",
+    "evidence": "Working use across common academic and productivity tasks."
+  },
+  {
+    "id": "microsoft-word",
+    "name": "Microsoft Word",
+    "category": "Technical",
+    "evidence": "Basic document preparation and formatting capability."
+  },
+  {
+    "id": "microsoft-excel",
+    "name": "Microsoft Excel",
+    "category": "Technical",
+    "evidence": "Basic spreadsheet handling for finance-related tasks."
+  },
+  {
+    "id": "microsoft-powerpoint",
+    "name": "Microsoft PowerPoint",
+    "category": "Technical",
+    "evidence": "Basic presentation-building for academic and project communication."
+  },
+  {
+    "id": "ai-tools",
+    "name": "AI tools",
+    "category": "Technical",
+    "evidence": "Working familiarity with AI-assisted study and productivity workflows."
+  },
+  {
+    "id": "ai-assisted-productivity",
+    "name": "AI-assisted productivity",
+    "category": "Technical",
+    "evidence": "Basic use of AI support for drafting, organization, and task acceleration."
+  },
+  {
+    "id": "basic-prompt-engineering",
+    "name": "Basic AI prompt engineering",
+    "category": "Technical",
+    "evidence": "Early-stage prompt structuring for clearer AI outputs."
+  },
+  {
+    "id": "basic-ai-systems-understanding",
+    "name": "Basic understanding of working with AI systems",
+    "category": "Technical",
+    "evidence": "Developing practical understanding through regular applied usage."
+  },
+  {
+    "id": "basic-web-portfolio-development",
+    "name": "Basic web/portfolio development through Crimson Sanctum",
+    "category": "Technical",
+    "evidence": "Hands-on experience building this portfolio with React, TypeScript, and Vite."
   }
 ]

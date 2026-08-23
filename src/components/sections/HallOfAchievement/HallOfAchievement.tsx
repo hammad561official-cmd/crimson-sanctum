@@ -19,12 +19,29 @@ export function HallOfAchievement() {
           {certificatesData.map((certificate) => (
             <article key={certificate.id} className="edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/34 p-5 backdrop-blur-sm">
               <h3 className="font-display text-xl text-parchment">{certificate.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-parchment-muted">
-                {certificate.issuer || 'Issuer details pending owner confirmation.'}
-              </p>
-              <p className="mt-1 font-utility text-[11px] uppercase tracking-[0.2em] text-parchment-faint">
-                {certificate.date || 'Date pending owner confirmation'}
-              </p>
+
+              {certificate.type && (
+                <p className="mt-2 text-sm leading-6 text-parchment-muted">{certificate.type}</p>
+              )}
+
+              {certificate.description && (
+                <p className="mt-2 text-sm leading-6 text-parchment-muted">{certificate.description}</p>
+              )}
+
+              <div className="mt-3 space-y-1 text-sm text-parchment-muted">
+                {certificate.issuer && <p>Issuer: {certificate.issuer}</p>}
+                {certificate.platform && <p>Platform: {certificate.platform}</p>}
+                {certificate.organizedBy && <p>Organized by: {certificate.organizedBy}</p>}
+                {certificate.inPartnershipWith && <p>In partnership with: {certificate.inPartnershipWith}</p>}
+                {certificate.institution && <p>Institution: {certificate.institution}</p>}
+                {certificate.topic && <p>Topic: {certificate.topic}</p>}
+              </div>
+
+              {certificate.date && (
+                <p className="mt-2 font-utility text-[11px] uppercase tracking-[0.2em] text-parchment-faint">
+                  {certificate.date}
+                </p>
+              )}
             </article>
           ))}
         </div>

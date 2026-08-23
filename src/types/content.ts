@@ -8,6 +8,10 @@ export interface EducationEntry {
   id: string;
   institution: string;
   program: string;
+  specialization?: string;
+  currentYear?: string;
+  currentSemester?: string;
+  expectedGraduation?: string;
   status: string;
 }
 
@@ -16,12 +20,20 @@ export interface ExperienceEntry {
   title: string;
   description: string;
   type: 'freelance' | 'speaking' | 'other';
+  category?: 'formal' | 'practical';
 }
 
 export interface CertificateEntry {
   id: string;
   title: string;
-  issuer: string;
+  type?: string;
+  issuer?: string;
+  platform?: string;
+  organizedBy?: string;
+  inPartnershipWith?: string;
+  institution?: string;
+  topic?: string;
+  description?: string;
   date: string;
 }
 
@@ -50,6 +62,8 @@ export interface FutureGoalEntry {
 export interface ContactContent {
   headline: string;
   availability: string;
+  email?: string;
+  github?: string;
   resumePath: string;
 }
 

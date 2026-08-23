@@ -1,26 +1,36 @@
 [
   {
+    "id": "vbyld-2026",
+    "title": "Visit Bharat Young Leaders Dialogue (VBYLD) 2026",
+    "type": "Certificate of Participation",
+    "issuer": "Ministry of Youth Affairs & Sports",
+    "platform": "MY Bharat",
+    "description": "Successfully participated in the online quiz associated with the Visit Bharat Young Leaders Dialogue (VBYLD) 2026.",
+    "date": "20 September 2025"
+  },
+  {
+    "id": "heartfulness-essay-2025",
+    "title": "Heartfulness Essay Event 2025",
+    "type": "Participation Certificate",
+    "organizedBy": "Heartfulness Education Trust and Shri Ram Chandra Mission",
+    "inPartnershipWith": "The Commonwealth",
+    "institution": "Allenhouse Business School, Kanpur Nagar",
+    "description": "Participated in the Global Heartfulness Essay Event 2025.",
+    "date": "2025"
+  },
+  {
     "id": "tally-assessment",
     "title": "Tally Assessment",
-    "issuer": "",
-    "date": ""
-  },
-  {
-    "id": "viksit-bharat",
-    "title": "Viksit Bharat Young Leaders Dialogue",
-    "issuer": "",
-    "date": ""
-  },
-  {
-    "id": "heartfulness-essay",
-    "title": "Heartfulness Essay Event",
-    "issuer": "",
-    "date": ""
+    "type": "Certificate of Completion",
+    "issuer": "LearnTube.ai",
+    "description": "Successfully completed the Tally Assessment.",
+    "date": "17 January 2026"
   },
   {
     "id": "international-conference",
-    "title": "International Conference Participation",
-    "issuer": "",
-    "date": ""
+    "title": "International Conference Participation / Presentation",
+    "topic": "Greening Intelligence",
+    "description": "Participated and presented at an international conference on the topic \"Greening Intelligence.\"",
+    "date": "30 January"
   }
 ]

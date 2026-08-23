@@ -9,6 +9,9 @@ const labels: Record<string, string> = {
 };
 
 export function Experience() {
+  const formalExperience = experienceData.filter((entry) => entry.category === 'formal');
+  const practicalExperience = experienceData.filter((entry) => entry.category !== 'formal');
+
   return (
     <SectionWrapper id="experience" label="Experience" className="relative overflow-hidden">
       <Container className="relative space-y-8">
@@ -21,23 +24,46 @@ export function Experience() {
           </h2>
         </header>
 
-        <div className="grid gap-4">
-          {experienceData.map((entry, index) => (
-            <article
-              key={entry.id}
-              className={index === 0
-                ? 'edge-lit-card edge-tier-3 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'
-                : 'edge-lit-card edge-tier-2 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'}
-            >
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <h3 className="font-display text-2xl text-parchment">{entry.title}</h3>
-                <span className="rounded-sm border border-crimson-ruby/50 px-2 py-1 font-utility text-[11px] uppercase tracking-[0.2em] text-crimson-ruby">
-                  {labels[entry.type] ?? labels.other}
-                </span>
-              </div>
-              <p className="text-base leading-7 text-parchment-muted">{entry.description}</p>
-            </article>
-          ))}
+        <div className="space-y-6">
+          <section className="space-y-3" aria-label="Formal experience">
+            <h3 className="font-display text-xl text-parchment">Formal experience</h3>
+            {formalExperience.map((entry) => (
+              <article
+                key={entry.id}
+                className="edge-lit-card edge-tier-1 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm"
+              >
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <h4 className="font-display text-2xl text-parchment">{entry.title}</h4>
+                  <span className="rounded-sm border border-crimson-ruby/50 px-2 py-1 font-utility text-[11px] uppercase tracking-[0.2em] text-crimson-ruby">
+                    {labels[entry.type] ?? labels.other}
+                  </span>
+                </div>
+                <p className="text-base leading-7 text-parchment-muted">{entry.description}</p>
+              </article>
+            ))}
+          </section>
+
+          <section className="space-y-3" aria-label="Practical and project experience">
+            <h3 className="font-display text-xl text-parchment">Practical / project experience</h3>
+            <div className="grid gap-4">
+              {practicalExperience.map((entry, index) => (
+                <article
+                  key={entry.id}
+                  className={index === 0
+                    ? 'edge-lit-card edge-tier-3 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'
+                    : 'edge-lit-card edge-tier-2 rounded-sm border bg-charcoal-700/36 p-6 backdrop-blur-sm'}
+                >
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h4 className="font-display text-2xl text-parchment">{entry.title}</h4>
+                    <span className="rounded-sm border border-crimson-ruby/50 px-2 py-1 font-utility text-[11px] uppercase tracking-[0.2em] text-crimson-ruby">
+                      {labels[entry.type] ?? labels.other}
+                    </span>
+                  </div>
+                  <p className="text-base leading-7 text-parchment-muted">{entry.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
       </Container>
     </SectionWrapper>

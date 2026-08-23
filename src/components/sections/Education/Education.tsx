@@ -20,7 +20,16 @@ export function Education() {
             <article key={entry.id} className="edge-lit-card edge-tier-3 rounded-sm border bg-charcoal-700/35 p-6 backdrop-blur-sm">
               <p className="font-utility text-[11px] uppercase tracking-[0.24em] text-crimson-ruby">{entry.status}</p>
               <h3 className="mt-2 font-display text-2xl text-parchment">{entry.program}</h3>
+              {entry.specialization && (
+                <p className="mt-2 text-base leading-7 text-parchment-muted">Specialization: {entry.specialization}</p>
+              )}
               <p className="mt-2 text-base leading-7 text-parchment-muted">{entry.institution}</p>
+
+              <div className="mt-4 grid gap-2 text-sm text-parchment-muted sm:grid-cols-2">
+                {entry.currentYear && <p>Current year: {entry.currentYear}</p>}
+                {entry.currentSemester && <p>Current semester: {entry.currentSemester}</p>}
+                {entry.expectedGraduation && <p>Expected graduation: {entry.expectedGraduation}</p>}
+              </div>
             </article>
           ))}
         </div>
