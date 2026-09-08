@@ -1,4 +1,3 @@
-import { Button } from '@/components/common/Button';
 import { Container } from '@/components/common/Container';
 import { SectionWrapper } from '@/components/common/SectionWrapper';
 import contactData from '@/data/contact.json';
@@ -10,35 +9,44 @@ export function Contact() {
   return (
     <SectionWrapper id="contact" label="Contact" className="relative overflow-hidden">
       <Container className="relative space-y-8">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-ruby/55 to-transparent" />
-
-        <header className="edge-lit-card edge-tier-2 mx-auto max-w-3xl rounded-sm border bg-charcoal-700/30 p-6 text-center md:p-8">
+        <header className="mx-auto max-w-2xl space-y-4 text-center">
           <p className="font-utility text-xs uppercase tracking-[0.34em] text-crimson-ruby">Contact</p>
-          <h2 className="mx-auto max-w-2xl font-display text-3xl leading-tight text-parchment md:text-5xl">
+          <h2 className="font-display text-3xl leading-tight text-parchment md:text-5xl">
             {contactData.headline}
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-7 text-parchment-muted md:text-lg">
+          <p className="text-base leading-7 text-parchment-muted md:text-lg">
             {contactData.availability}
           </p>
         </header>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <nav aria-label="Contact links" className="flex flex-wrap justify-center gap-x-6 gap-y-3">
           {hasEmail && (
-            <Button as="a" href={`mailto:${contactData.email}`} variant="ghost">
+            <a
+              href={`mailto:${contactData.email}`}
+              className="border-b border-charcoal-500 pb-1 text-sm font-medium text-parchment transition-colors duration-300 hover:border-crimson-ruby hover:text-crimson-ruby"
+            >
               Email
-            </Button>
+            </a>
           )}
 
           {hasGithub && (
-            <Button as="a" href={contactData.github} target="_blank" rel="noreferrer" variant="ghost">
+            <a
+              href={contactData.github}
+              target="_blank"
+              rel="noreferrer"
+              className="border-b border-charcoal-500 pb-1 text-sm font-medium text-parchment transition-colors duration-300 hover:border-crimson-ruby hover:text-crimson-ruby"
+            >
               GitHub
-            </Button>
+            </a>
           )}
 
-          <Button as="a" href={contactData.resumePath} variant="ghost">
-            View Resume
-          </Button>
-        </div>
+          <a
+            href={contactData.resumePath}
+            className="border-b border-charcoal-500 pb-1 text-sm font-medium text-parchment transition-colors duration-300 hover:border-crimson-ruby hover:text-crimson-ruby"
+          >
+            Resume
+          </a>
+        </nav>
       </Container>
     </SectionWrapper>
   );
