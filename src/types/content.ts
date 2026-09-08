@@ -35,6 +35,7 @@ export interface CertificateEntry {
   topic?: string;
   description?: string;
   date: string;
+  imagePath?: string;
 }
 
 export interface SkillEntry {

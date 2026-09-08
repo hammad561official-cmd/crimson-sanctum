@@ -6,7 +6,8 @@
     "issuer": "Ministry of Youth Affairs & Sports",
     "platform": "MY Bharat",
     "description": "Successfully participated in the online quiz associated with the Visit Bharat Young Leaders Dialogue (VBYLD) 2026.",
-    "date": "20 September 2025"
+    "date": "20 September 2025",
+    "imagePath": "/certificates/viksit-bharat-young-leaders-dialogue-2026.jpg"
   },
   {
     "id": "heartfulness-essay-2025",
@@ -16,7 +17,8 @@
     "inPartnershipWith": "The Commonwealth",
     "institution": "Allenhouse Business School, Kanpur Nagar",
     "description": "Participated in the Global Heartfulness Essay Event 2025.",
-    "date": "2025"
+    "date": "2025",
+    "imagePath": "/certificates/heartfulness-essay-2025.jpg"
   },
   {
     "id": "tally-assessment",
@@ -24,13 +26,15 @@
     "type": "Certificate of Completion",
     "issuer": "LearnTube.ai",
     "description": "Successfully completed the Tally Assessment.",
-    "date": "17 January 2026"
+    "date": "17 January 2026",
+    "imagePath": "/certificates/tally-assessment-2026.jpg"
   },
   {
     "id": "international-conference",
     "title": "International Conference Participation / Presentation",
     "topic": "Greening Intelligence",
     "description": "Participated and presented at an international conference on the topic \"Greening Intelligence.\"",
-    "date": "30 January"
+    "date": "30 January",
+    "imagePath": "/certificates/WhatsApp%20Image%202026-09-08%20at%201.07.06%20PM.jpeg"
   }
 ]

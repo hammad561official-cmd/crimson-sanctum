@@ -7,8 +7,6 @@ import { About } from '@/components/sections/About';
 import { Contact } from '@/components/sections/Contact';
 import { CurrentWorks } from '@/components/sections/CurrentWorks';
 import { Education } from '@/components/sections/Education';
-import { Experience } from '@/components/sections/Experience';
-import { FutureGoals } from '@/components/sections/FutureGoals';
 import { HallOfAchievement } from '@/components/sections/HallOfAchievement';
 import { IntroAnimation } from '@/components/sections/Hero/IntroAnimation';
 import { Hero } from '@/components/sections/Hero';
@@ -30,7 +28,7 @@ export function Home() {
       <SEO />
 
       <LoadingScreen
-        isReady={introComplete}
+        isReady
         onComplete={() => setIntroComplete(true)}
       >
         <IntroAnimation
@@ -44,12 +42,11 @@ export function Home() {
       {introComplete && (
         <>
           <About />
-          <Experience />
-          <Skills />
-          <CurrentWorks />
           <Education />
-          <HallOfAchievement />
-          <FutureGoals />
+          <Skills />
+          <HallOfAchievement sectionId="certifications" sectionLabel="Certifications" variant="certifications" />
+          <CurrentWorks />
+          <HallOfAchievement sectionId="achievements" sectionLabel="Achievements" variant="achievements" />
           <Contact />
           <Footer />
         </>

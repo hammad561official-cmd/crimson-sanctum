@@ -12,6 +12,8 @@ import { fadeUp, fadeUpReduced, fadeIn } from '@/lib/animationVariants';
 import { durations } from '@/theme/tokens';
 import { SITE } from '@/lib/constants';
 import { cn } from '@/lib/cn';
+import { Button } from '@/components/common/Button';
+import contactData from '@/data/contact.json';
 import educationData from '@/data/education.json';
 
 /**
@@ -158,7 +160,9 @@ export interface HeroChamberProps {
 
 const primaryEducation = educationData[0];
 const DEFAULT_OWNER_NAME = SITE.owner;
-const DEFAULT_OWNER_TITLE = primaryEducation ? `${primaryEducation.program} Student` : '';
+const DEFAULT_OWNER_TITLE = primaryEducation
+  ? `${primaryEducation.program} ${primaryEducation.specialization ?? ''}`.trim()
+  : '';
 const DEFAULT_OWNER_SCHOOL = primaryEducation?.institution ?? '';
 
 const DEFAULT_SILENCE_MS = 500;
@@ -244,14 +248,13 @@ export function Hero({
     return () => window.clearTimeout(timer);
   }, [phase, Chamber, chamberFallbackDurationMs, prefersReducedMotion]);
 
-  // subtitle -> navigation: the subtitle's own fade-up transition
-  // reports completion via onAnimationComplete below; reduced motion
-  // has no transition to wait on, so it advances immediately.
+  // The professional identity is visible immediately, so the lifecycle's
+  // subtitle phase only controls when the secondary navigation cue settles.
   useEffect(() => {
-    if (phase === 'subtitle' && prefersReducedMotion) {
+    if (phase === 'subtitle') {
       dispatch({ type: 'SUBTITLE_COMPLETE' });
     }
-  }, [phase, prefersReducedMotion]);
+  }, [phase]);
 
   // Entering `navigation`: fire the reveal callback exactly once, then
   // dwell briefly before the scroll cue appears.
@@ -273,16 +276,16 @@ export function Hero({
     }
   }, [phase, prefersReducedMotion]);
 
-  const showSubtitle =
-    phase === 'subtitle' || phase === 'navigation' || phase === 'scrollCue' || phase === 'settled';
   const showScrollCue = phase === 'scrollCue' || phase === 'settled';
+  const hasGithub = typeof contactData.github === 'string' && contactData.github.length > 0;
+  const hasResume = typeof contactData.resumePath === 'string' && contactData.resumePath.length > 0;
 
   return (
     <section
       id="hero"
       aria-label="Hero"
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-obsidian',
+        'relative flex min-h-[calc(100svh-5rem)] w-full flex-col justify-center overflow-hidden bg-obsidian md:min-h-[720px]',
         className
       )}
     >
@@ -300,32 +303,61 @@ export function Hero({
         />
       )}
 
-      {/* Subtitle — static chrome owned directly here, not delegated to
-          the chamber component, matching how LoadingScreen owned its
-          own Skip button rather than pushing it into IntroAnimation. */}
+      {/* Professional identity — intentionally independent from the
+          cinematic lifecycle so useful information is never delayed. */}
       <motion.div
-        className="relative z-content mt-6 flex flex-col items-center gap-2 text-center"
+        className="relative z-content mx-auto flex w-full max-w-6xl flex-col items-start px-6 py-20 md:px-10 md:py-24"
         initial="hidden"
-        animate={showSubtitle ? 'visible' : 'hidden'}
+        animate="visible"
         variants={prefersReducedMotion ? fadeUpReduced : fadeUp}
-        onAnimationComplete={(definition) => {
-          if (definition === 'visible' && phase === 'subtitle') {
-            dispatch({ type: 'SUBTITLE_COMPLETE' });
-          }
-        }}
       >
-        <p className="font-display text-lg tracking-wide text-parchment md:text-xl">{ownerName}</p>
-        <p className="font-body text-sm text-parchment-muted md:text-base">{ownerTitle}</p>
-        <p className="font-utility text-xs uppercase tracking-widest text-parchment-faint">
-          {ownerSchool}
-        </p>
+        <div className="max-w-3xl space-y-6">
+          <p className="font-utility text-xs uppercase tracking-[0.3em] text-crimson-ruby">
+            Crimson Sanctum · Student Portfolio
+          </p>
+
+          <div className="space-y-4">
+            <h1 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-wide text-parchment sm:text-6xl md:text-7xl">
+              {ownerName}
+            </h1>
+            <div className="space-y-1">
+              <p className="font-body text-lg font-medium text-parchment md:text-xl">{ownerTitle}</p>
+              <p className="font-utility text-xs uppercase tracking-[0.24em] text-parchment-muted md:text-sm">
+                {ownerSchool}
+              </p>
+            </div>
+          </div>
+
+          <p className="max-w-xl text-base leading-7 text-parchment-muted md:text-lg">
+            Developing practical finance, business, and communication skills through study and project-based work.
+          </p>
+
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button as="a" href="#projects" variant="primary" size="md">
+              View Projects
+            </Button>
+            <Button as="a" href="#contact" variant="ghost" size="md">
+              Contact
+            </Button>
+            {hasResume && (
+              <Button as="a" href={contactData.resumePath} variant="ghost" size="md">
+                Resume
+              </Button>
+            )}
+            {hasGithub && (
+              <Button as="a" href={contactData.github} target="_blank" rel="noreferrer" variant="ghost" size="md">
+                GitHub
+              </Button>
+            )}
+          </div>
+        </div>
       </motion.div>
 
       {children}
 
-      {/* Scroll cue — simple, self-contained, reused-variant chrome. */}
+      {/* Scroll cue — secondary guidance after the useful identity and CTAs. */}
       <motion.div
-        className="absolute inset-x-0 bottom-10 z-content flex flex-col items-center gap-2"
+        className="absolute inset-x-0 bottom-5 z-content flex flex-col items-center gap-2 md:bottom-8"
         initial="hidden"
         animate={showScrollCue ? 'visible' : 'hidden'}
         variants={prefersReducedMotion ? fadeUpReduced : fadeIn}
@@ -335,7 +367,7 @@ export function Hero({
           }
         }}
       >
-        <span className="font-utility text-xs uppercase tracking-widest text-parchment-faint">
+          <span className="font-utility text-[11px] uppercase tracking-widest text-parchment-faint">
           {scrollCueLabel}
         </span>
         <motion.span

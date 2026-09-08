@@ -17,11 +17,10 @@ export const SITE = {
 export const SECTIONS: SectionMeta[] = [
   { id: 'hero', label: 'Hero' },
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'current-works', label: 'Current Works & Future Ventures' },
   { id: 'education', label: 'Education' },
-  { id: 'hall-of-achievement', label: 'Hall of Achievement' },
-  { id: 'future-goals', label: 'Future Goals' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'certifications', label: 'Certifications' },
+  { id: 'projects', label: 'Projects / Work' },
+  { id: 'achievements', label: 'Achievements' },
   { id: 'contact', label: 'Contact' },
 ];

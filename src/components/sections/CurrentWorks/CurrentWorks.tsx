@@ -7,7 +7,7 @@ const futureVentures = worksData.filter((entry) => entry.track === 'future');
 
 export function CurrentWorks() {
   return (
-    <SectionWrapper id="current-works" label="Current Works & Future Ventures" className="relative overflow-hidden">
+    <SectionWrapper id="projects" label="Projects / Work" className="relative overflow-hidden">
       <Container className="relative space-y-8">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-ruby/55 to-transparent" />
 

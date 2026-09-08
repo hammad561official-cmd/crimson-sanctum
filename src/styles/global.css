@@ -14,8 +14,6 @@
 
   * {
     @apply border-charcoal-600;
-    -webkit-user-select: none;
-    user-select: none;
     -webkit-touch-callout: none;
   }
 
