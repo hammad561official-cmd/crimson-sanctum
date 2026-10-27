@@ -312,6 +312,10 @@ export function Hero({
         />
       </div>
 
+      <div className="hero-seal" aria-hidden="true">
+        <span>CS</span>
+      </div>
+
       {/* Professional identity — intentionally independent from the
           cinematic lifecycle so useful information is never delayed. */}
       <motion.div
@@ -325,6 +329,10 @@ export function Hero({
             Crimson Sanctum · Student Portfolio
           </p>
 
+          <div className="hero-rotor" aria-hidden="true">
+            <span>{ownerTitle}</span>
+          </div>
+
           <div className="space-y-4">
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-wide text-parchment sm:text-6xl md:text-7xl">
               {ownerName}
@@ -336,6 +344,11 @@ export function Hero({
               </p>
             </div>
           </div>
+
+          <p className="hero-badge">
+            <span aria-hidden="true" />
+            Open to meaningful conversation
+          </p>
 
           <p className="max-w-xl text-base leading-7 text-parchment-muted md:text-lg">
             Developing practical finance, business, and communication skills through study and project-based work.

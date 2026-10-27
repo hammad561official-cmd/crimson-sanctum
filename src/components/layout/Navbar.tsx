@@ -9,7 +9,24 @@ const navItems = SECTIONS.filter((section) => section.id !== 'hero');
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>('');
+  const [clock, setClock] = useState('');
   const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const updateClock = () => {
+      setClock(
+        new Intl.DateTimeFormat(undefined, {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        }).format(new Date())
+      );
+    };
+
+    updateClock();
+    const timer = window.setInterval(updateClock, 30_000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const elements = navItems
@@ -82,6 +99,10 @@ export function Navbar() {
             );
           })}
         </div>
+
+        <time className="hidden font-utility text-[11px] tracking-[0.08em] text-parchment-faint lg:block" dateTime={new Date().toISOString()}>
+          {clock}
+        </time>
 
         <button
           type="button"

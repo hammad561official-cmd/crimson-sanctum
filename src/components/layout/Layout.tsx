@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 interface LayoutProps {
   children: ReactNode;
@@ -22,11 +23,16 @@ interface LayoutProps {
  *  - the <main> landmark every route renders into
  */
 export function Layout({ children }: LayoutProps) {
+  const scrollProgress = useScrollProgress();
+
   return (
     <>
       <a href="#main-content" className="sr-only-focusable">
         Skip to main content
       </a>
+      <div className="scroll-progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${scrollProgress})` }} />
+      </div>
       <Navbar />
       <main id="main-content" className="pt-20">
         {children}
