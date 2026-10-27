@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import certificates from '@/data/certificates.json';
 import contact from '@/data/contact.json';
 import education from '@/data/education.json';
@@ -12,6 +12,8 @@ export function ReferencePortfolio() {
   const [introOpen, setIntroOpen] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedCertificate, setSelectedCertificate] = useState<typeof certificates[number] | null>(null);
+  const closeViewerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.body.classList.toggle('locked', introOpen);
@@ -21,6 +23,16 @@ export function ReferencePortfolio() {
       document.body.classList.remove('locked');
     };
   }, [introOpen]);
+
+  useEffect(() => {
+    if (!selectedCertificate) return;
+    closeViewerRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedCertificate(null);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedCertificate]);
 
   const visibleSkills = useMemo(
     () => (activeCategory === 'All' ? skills : skills.filter((skill) => skill.category === activeCategory)),
@@ -79,7 +91,7 @@ export function ReferencePortfolio() {
 
         <section id="skills"><SectionHeading label="Skills & Tech Stack" title={<>Finance-rooted discipline supported by <em>a modern implementation stack.</em></>} /><div className="filters" aria-label="Filter skills">{categories.map((category) => <button key={category} type="button" aria-pressed={activeCategory === category} onClick={() => setActiveCategory(category)}>{category}</button>)}</div><div className="skill-grid">{visibleSkills.map((skill) => <article className="skill-card" key={skill.id}><h3>{skill.name}</h3><p>{skill.evidence}</p></article>)}</div></section>
 
-        <section id="certifications"><SectionHeading label="Certifications" title={<>Verified recognitions collected <em>along the journey.</em></>} /><div className="recognitions">{certificates.filter((item) => item.type?.toLowerCase().includes('certificate')).map((item) => <article className="recognition" key={item.id}>{item.imagePath && <img src={item.imagePath} alt={`${item.title} certificate`} loading="lazy" />}<h3>{item.title}</h3><p>{item.description}</p><small>{item.date}</small></article>)}</div></section>
+        <section id="certifications"><SectionHeading label="Certifications" title={<>Verified recognitions collected <em>along the journey.</em></>} /><div className="recognitions">{certificates.filter((item) => item.type?.toLowerCase().includes('certificate') || item.type === 'Digital Marketing Certified').map((item) => <CertificateCard key={item.id} certificate={item} onOpen={() => setSelectedCertificate(item)} />)}</div></section>
 
         <section id="projects"><SectionHeading label="Projects · Current Works & Future Ventures" title={<>Work in motion today, and structured space for verified ventures tomorrow.</>} /><div className="project-grid">{works.map((work) => <article className="wide-card" key={work.id}><small>{work.status}</small><h3>{work.title}</h3><p>{work.summary}</p></article>)}</div></section>
 
@@ -92,6 +104,7 @@ export function ReferencePortfolio() {
           <a className="contact-link whatsapp-link" href="https://wa.me/918707282499" target="_blank" rel="noreferrer" aria-label="Contact on WhatsApp"><ContactIcon type="whatsapp" /></a>
         </div></section>
       </main>
+      {selectedCertificate && <CertificateViewer certificate={selectedCertificate} closeViewerRef={closeViewerRef} onClose={() => setSelectedCertificate(null)} />}
       <footer><h2>Mohammad Hammad Sadiq</h2><p>BBA Finance &amp; Marketing · Allenhouse Business School</p><small>© {new Date().getFullYear()} Mohammad Hammad Sadiq.</small></footer>
     </div>
   );
@@ -99,6 +112,48 @@ export function ReferencePortfolio() {
 
 function SectionHeading({ label, title }: { label: string; title: React.ReactNode }) {
   return <header className="section-heading"><p className="kicker">{label}</p><h2>{title}</h2></header>;
+}
+
+type Certificate = typeof certificates[number];
+
+function CertificateCard({ certificate, onOpen }: { certificate: Certificate; onOpen: () => void }) {
+  return (
+    <article className="recognition">
+      <button className="recognition-open" type="button" onClick={onOpen} aria-label={`Open ${certificate.title} certificate`}>
+        {certificate.imagePath && <img src={certificate.imagePath} alt={`${certificate.title} certificate for Mohammad Hammad Sadiq`} loading="lazy" />}
+        <span className="recognition-content">
+          <small>{certificate.type}</small>
+          <h3>{certificate.title}</h3>
+          <p className="recognition-issuer">{certificate.issuer ?? certificate.organizedBy ?? certificate.platform ?? ''}</p>
+          <p>{certificate.description}</p>
+          <small>{certificate.date}</small>
+          <span className="recognition-hint">Open certificate</span>
+        </span>
+      </button>
+    </article>
+  );
+}
+
+function CertificateViewer({
+  certificate,
+  closeViewerRef,
+  onClose,
+}: {
+  certificate: Certificate;
+  closeViewerRef: React.RefObject<HTMLButtonElement>;
+  onClose: () => void;
+}) {
+  return (
+    <div className="certificate-viewer" role="dialog" aria-modal="true" aria-labelledby="certificate-viewer-title">
+      <div className="certificate-viewer-panel">
+        <button ref={closeViewerRef} className="certificate-viewer-close" type="button" onClick={onClose} aria-label="Close certificate viewer">×</button>
+        <p className="kicker">Certificate viewer</p>
+        <h2 id="certificate-viewer-title">{certificate.title}</h2>
+        {certificate.imagePath && <img src={certificate.imagePath} alt={`${certificate.title} certificate for Mohammad Hammad Sadiq`} />}
+        <p className="certificate-viewer-meta">{certificate.type} · {certificate.date}</p>
+      </div>
+    </div>
+  );
 }
 
 function ContactIcon({ type }: { type: 'github' | 'resume' | 'gmail' | 'whatsapp' }) {

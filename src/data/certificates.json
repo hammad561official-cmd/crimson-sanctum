@@ -1,13 +1,14 @@
 [
   {
     "id": "vbyld-2026",
-    "title": "Visit Bharat Young Leaders Dialogue (VBYLD) 2026",
+    "title": "Viksit Bharat Young Leaders Dialogue (VBYLD)",
+    "certificateTitle": "Viksit Bharat Young Leaders Dialogue (VBYLD) 2027",
     "type": "Certificate of Participation",
     "issuer": "Ministry of Youth Affairs & Sports",
     "platform": "MY Bharat",
-    "description": "Successfully participated in the online quiz associated with the Visit Bharat Young Leaders Dialogue (VBYLD) 2026.",
-    "date": "20 September 2025",
-    "imagePath": "/certificates/viksit-bharat-young-leaders-dialogue-2026.jpg"
+    "description": "Certificate title displays “2027”; participation date is preserved separately from the certificate image.",
+    "date": "28 August 2026",
+    "imagePath": "/certificates/vbyld-participation-2026.png"
   },
   {
     "id": "heartfulness-essay-2025",
@@ -19,6 +20,36 @@
     "description": "Participated in the Global Heartfulness Essay Event 2025.",
     "date": "2025",
     "imagePath": "/certificates/heartfulness-essay-2025.jpg"
+  },
+  {
+    "id": "business-development-workshop-2026",
+    "title": "Business Development Strategies Workshop",
+    "type": "Certificate of Participation",
+    "issuer": "Allenhouse Group of Institutions",
+    "participant": "Mohammad Hammad",
+    "description": "Participated in the Business Development Strategies workshop.",
+    "date": "18 September 2026",
+    "imagePath": "/certificates/business-development-workshop-2026.jpeg"
+  },
+  {
+    "id": "tb-mukt-bharat-quiz-2026",
+    "title": "TB Mukt Bharat Abhiyan Quiz",
+    "type": "Certificate of Participation",
+    "issuer": "Ministry of Youth Affairs and Sports",
+    "platform": "MYBharat",
+    "description": "Participated in the TB Mukt Bharat Abhiyan Quiz.",
+    "date": "3 September 2026",
+    "imagePath": "/certificates/tb-mukt-bharat-quiz-2026.png"
+  },
+  {
+    "id": "hubspot-digital-marketing-2026",
+    "title": "Digital Marketing Certification",
+    "type": "Digital Marketing Certified",
+    "issuer": "HubSpot Academy",
+    "description": "Certified in digital marketing practices including SEO, website optimization, social media strategy, video, advertising, and measurement.",
+    "date": "Valid from 2 September 2026 to 1 October 2028",
+    "certificationCode": "ee1b01abb0204578966c0c62bf9e547c",
+    "imagePath": "/certificates/hubspot-digital-marketing-certification.png"
   },
   {
     "id": "tally-assessment",
