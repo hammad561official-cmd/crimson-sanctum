@@ -299,6 +299,8 @@
   .reference-site *,
   .reference-site *::before,
   .reference-site *::after { box-sizing: border-box; }
+  .reference-scroll-progress { position: fixed; z-index: 50; top: 65px; right: 0; left: 0; height: 3px; overflow: hidden; background: rgba(244,244,242,.12); pointer-events: none; }
+  .reference-scroll-progress span { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left center; background: linear-gradient(90deg, #9b1b30, #e0574f, #f4f4f2); box-shadow: 0 0 12px rgba(224,87,79,.7); }
   .reference-site a { color: inherit; text-decoration: none; }
   .reference-site button { font: inherit; }
   .reference-site section { position: relative; padding: 110px 6vw; scroll-margin-top: 78px; }

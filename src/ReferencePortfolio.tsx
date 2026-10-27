@@ -4,6 +4,7 @@ import contact from '@/data/contact.json';
 import education from '@/data/education.json';
 import works from '@/data/currentWorks.json';
 import skills from '@/data/skills.json';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 const portrait = '/profile.jpg/https:/Hammad.jpeg';
 const categories = ['All', ...Array.from(new Set(skills.map((skill) => skill.category)))];
@@ -22,6 +23,7 @@ export function ReferencePortfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedCertificate, setSelectedCertificate] = useState<typeof certificates[number] | null>(null);
   const closeViewerRef = useRef<HTMLButtonElement>(null);
+  const scrollProgress = useScrollProgress();
 
   useEffect(() => {
     document.body.classList.toggle('locked', introOpen);
@@ -49,6 +51,9 @@ export function ReferencePortfolio() {
 
   return (
     <div className="reference-site">
+      <div className="reference-scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(scrollProgress * 100)}>
+        <span style={{ transform: `scaleX(${scrollProgress})` }} />
+      </div>
       {introOpen && (
         <div className="intro" role="dialog" aria-modal="true" aria-label="Crimson Sanctum introduction">
           <button type="button" onClick={() => setIntroOpen(false)}>Skip intro</button>
