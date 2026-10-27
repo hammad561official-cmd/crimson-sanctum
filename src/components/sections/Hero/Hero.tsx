@@ -3,6 +3,7 @@ import {
   useEffect,
   useReducer,
   type ComponentType,
+  type CSSProperties,
   type ReactNode,
 } from 'react';
 import { motion } from 'framer-motion';
@@ -334,9 +335,14 @@ export function Hero({
           </div>
 
           <div className="space-y-4">
-            <h1 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-wide text-parchment sm:text-6xl md:text-7xl">
-              {ownerName}
+            <h1 className="hero-name max-w-3xl font-display leading-[1.05] tracking-wide text-parchment" aria-label={ownerName}>
+              {'Hammad'.split('').map((letter, index) => (
+                <span key={`${letter}-${index}`} style={{ '--letter-index': index } as CSSProperties} aria-hidden="true">
+                  {letter}
+                </span>
+              ))}
             </h1>
+            <p className="hero-owner-full">{ownerName}</p>
             <div className="space-y-1">
               <p className="font-body text-lg font-medium text-parchment md:text-xl">{ownerTitle}</p>
               <p className="font-utility text-xs uppercase tracking-[0.24em] text-parchment-muted md:text-sm">

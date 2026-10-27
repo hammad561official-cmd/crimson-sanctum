@@ -271,6 +271,126 @@
 }
 
 @layer utilities {
+  .reference-page {
+    --reference-bg: #0a0908;
+    --reference-panel: #181515;
+    --reference-ink: #f4f4f2;
+    --reference-muted: #c9c4c4;
+    --reference-line: rgba(244, 244, 242, 0.14);
+    --reference-accent: #e0574f;
+    font-family: 'Newsreader', Georgia, serif;
+  }
+
+  .reference-page .font-display,
+  .reference-page h1,
+  .reference-page h2,
+  .reference-page h3,
+  .reference-page h4 {
+    font-family: 'Anton', Impact, sans-serif;
+    font-weight: 400;
+  }
+
+  .reference-page .font-utility {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .reference-page section {
+    scroll-margin-top: 70px;
+  }
+
+  .reference-marquee {
+    overflow: hidden;
+    border-block: 1px solid var(--reference-line);
+    padding: 14px 0;
+    color: #aaa5a2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .reference-marquee > div {
+    display: flex;
+    width: max-content;
+    animation: referenceMarquee 30s linear infinite;
+  }
+
+  .reference-marquee span {
+    padding-right: 2.6rem;
+    white-space: nowrap;
+  }
+
+  @keyframes referenceMarquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .reference-page .hero-name {
+    display: flex;
+    gap: 0.015em;
+    font-size: clamp(4.5rem, 13vw, 10rem);
+    line-height: 0.84;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .reference-page .hero-name span {
+    display: inline-block;
+    animation: referenceLetterRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--letter-index) * 55ms + 200ms);
+  }
+
+  @keyframes referenceLetterRise {
+    from {
+      opacity: 0;
+      filter: blur(9px);
+      transform: translateY(0.5em) rotate(5deg);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0) rotate(0);
+    }
+  }
+
+  .reference-page .hero-owner-full {
+    margin: 0;
+    color: var(--reference-muted);
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    letter-spacing: 0.08em;
+  }
+
+  .reference-page .hero-copy {
+    max-width: min(100%, 48rem);
+  }
+
+  .reference-page .edge-lit-card {
+    border-radius: 14px;
+  }
+
+  .reference-page .edge-lit-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .reference-page .hero-badge {
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 767px) {
+    .reference-page .hero-name {
+      font-size: clamp(3.8rem, 20vw, 6rem);
+    }
+
+    .reference-page .hero-owner-full {
+      font-size: 1rem;
+    }
+
+    .reference-marquee {
+      font-size: 0.62rem;
+    }
+  }
+
   .exhibition-section {
     isolation: isolate;
   }

@@ -34,7 +34,7 @@ export function Layout({ children }: LayoutProps) {
         <span style={{ transform: `scaleX(${scrollProgress})` }} />
       </div>
       <Navbar />
-      <main id="main-content" className="pt-20">
+      <main id="main-content" className="reference-page pt-20">
         {children}
       </main>
     </>

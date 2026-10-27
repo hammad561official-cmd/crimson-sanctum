@@ -33,24 +33,40 @@ export function Home() {
       >
         <IntroAnimation
           playing={!introComplete}
+          sequenceTiming={{
+            dark: 120,
+            point: 140,
+            seal: 160,
+            fog: 140,
+            energy: 180,
+            title: 220,
+            unlock: 120,
+            camera: 260,
+          }}
           onSequenceComplete={() => setIntroComplete(true)}
         />
       </LoadingScreen>
 
       <Hero active={introComplete} />
 
-      {introComplete && (
-        <>
-          <About />
-          <Education />
-          <Skills />
-          <HallOfAchievement sectionId="certifications" sectionLabel="Certifications" variant="certifications" />
-          <CurrentWorks />
-          <HallOfAchievement sectionId="achievements" sectionLabel="Achievements" variant="achievements" />
-          <Contact />
-          <Footer />
-        </>
-      )}
+      <div className="reference-marquee" aria-hidden="true">
+        <div>
+          {['Finance', 'Marketing', 'Business', 'Communication', 'Crimson Sanctum'].map((word) => (
+            <span key={word}>{word}</span>
+          ))}
+          {['Finance', 'Marketing', 'Business', 'Communication', 'Crimson Sanctum'].map((word) => (
+            <span key={`${word}-repeat`}>{word}</span>
+          ))}
+        </div>
+      </div>
+      <About />
+      <Education />
+      <Skills />
+      <HallOfAchievement sectionId="certifications" sectionLabel="Certifications" variant="certifications" />
+      <CurrentWorks />
+      <HallOfAchievement sectionId="achievements" sectionLabel="Achievements" variant="achievements" />
+      <Contact />
+      <Footer />
     </>
   );
 }
