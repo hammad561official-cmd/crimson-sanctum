@@ -303,6 +303,15 @@ export function Hero({
         />
       )}
 
+      <div className="hero-portrait-wrap">
+        <img
+          className="hero-portrait"
+          src="/profile.jpg/https:/Hammad.jpeg"
+          alt="Portrait of Mohammad Hammad Sadiq"
+          fetchPriority="high"
+        />
+      </div>
+
       {/* Professional identity — intentionally independent from the
           cinematic lifecycle so useful information is never delayed. */}
       <motion.div
@@ -311,7 +320,7 @@ export function Hero({
         animate="visible"
         variants={prefersReducedMotion ? fadeUpReduced : fadeUp}
       >
-        <div className="max-w-3xl space-y-6">
+        <div className="hero-copy max-w-3xl space-y-6">
           <p className="font-utility text-xs uppercase tracking-[0.3em] text-crimson-ruby">
             Crimson Sanctum · Student Portfolio
           </p>
