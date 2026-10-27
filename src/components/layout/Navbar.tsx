@@ -68,7 +68,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-modal border-b border-charcoal-600/80 bg-obsidian/80 backdrop-blur-sm">
+    <header className="reference-nav fixed inset-x-0 top-0 z-modal border-b border-charcoal-600/80 bg-obsidian/80 backdrop-blur-sm">
       <nav aria-label="Primary navigation" className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-8">
         <a
           href="#hero"

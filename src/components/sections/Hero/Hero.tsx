@@ -214,11 +214,25 @@ export function Hero({
   children,
 }: HeroProps) {
   const [phase, dispatch] = useReducer(heroPhaseReducer, 'idle');
+  const [rotorIndex, setRotorIndex] = useReducer((index: number) => (index + 1) % 4, 0);
   const prefersReducedMotion = useReducedMotion();
   // Same performance bar as IntroAnimation: mid-range Android first.
   // Computed once here and threaded to the chamber component below,
   // rather than re-derived per scene — see module docs.
   const isCompact = useMediaQuery('(max-width: 640px)');
+
+  const rotorWords = [
+    ownerTitle,
+    ownerSchool,
+    '2nd Year · III / 3rd Semester',
+    'Expected Graduation · 2028',
+  ];
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    const timer = window.setInterval(setRotorIndex, 3000);
+    return () => window.clearInterval(timer);
+  }, [prefersReducedMotion]);
 
   // idle -> silence, once the parent hands off control
   useEffect(() => {
@@ -331,7 +345,7 @@ export function Hero({
           </p>
 
           <div className="hero-rotor" aria-hidden="true">
-            <span>{ownerTitle}</span>
+            <span>{rotorWords[rotorIndex]}</span>
           </div>
 
           <div className="space-y-4">

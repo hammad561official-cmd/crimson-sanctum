@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import { CrimsonLightningBackground } from '@/components/background/CrimsonLightningBackground';
+import { useEffect, useState } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { SEO } from '@/components/layout/SEO';
-import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import { About } from '@/components/sections/About';
 import { Contact } from '@/components/sections/Contact';
 import { CurrentWorks } from '@/components/sections/CurrentWorks';
 import { Education } from '@/components/sections/Education';
 import { HallOfAchievement } from '@/components/sections/HallOfAchievement';
-import { IntroAnimation } from '@/components/sections/Hero/IntroAnimation';
 import { Hero } from '@/components/sections/Hero';
 import { Skills } from '@/components/sections/Skills';
 
@@ -20,34 +17,45 @@ import { Skills } from '@/components/sections/Skills';
  * that component is approved. Until then Hero uses its safe fallback path.
  */
 export function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introVisible, setIntroVisible] = useState(true);
+
+  useEffect(() => {
+    document.body.classList.toggle('locked', introVisible);
+    const timer = window.setTimeout(() => setIntroVisible(false), 1400);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.classList.remove('locked');
+    };
+  }, [introVisible]);
 
   return (
     <>
-      <CrimsonLightningBackground />
       <SEO />
 
-      <LoadingScreen
-        isReady
-        onComplete={() => setIntroComplete(true)}
-      >
-        <IntroAnimation
-          playing={!introComplete}
-          sequenceTiming={{
-            dark: 120,
-            point: 140,
-            seal: 160,
-            fog: 140,
-            energy: 180,
-            title: 220,
-            unlock: 120,
-            camera: 260,
-          }}
-          onSequenceComplete={() => setIntroComplete(true)}
-        />
-      </LoadingScreen>
+      {introVisible && (
+        <div className="reference-intro" role="dialog" aria-modal="true" aria-label="Crimson Sanctum introduction">
+          <button
+            type="button"
+            className="reference-intro-skip"
+            onClick={() => setIntroVisible(false)}
+          >
+            Skip intro
+          </button>
+          <div className="reference-intro-inner">
+            <p>Loading Crimson Sanctum</p>
+            <h1>
+              <span>Crimson</span> <em>Sanctum</em>
+            </h1>
+            <i>An Interactive Portfolio Experience</i>
+            <div className="reference-intro-bar" aria-hidden="true">
+              <span />
+            </div>
+          </div>
+        </div>
+      )}
 
-      <Hero active={introComplete} />
+      <Hero active={!introVisible} />
 
       <div className="reference-marquee" aria-hidden="true">
         <div>
