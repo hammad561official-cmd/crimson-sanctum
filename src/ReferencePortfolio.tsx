@@ -7,6 +7,14 @@ import skills from '@/data/skills.json';
 
 const portrait = '/profile.jpg/https:/Hammad.jpeg';
 const categories = ['All', ...Array.from(new Set(skills.map((skill) => skill.category)))];
+const certificationIds = new Set([
+  'vbyld-2026',
+  'heartfulness-essay-2025',
+  'business-development-workshop-2026',
+  'tb-mukt-bharat-quiz-2026',
+  'hubspot-digital-marketing-2026',
+  'tally-assessment',
+]);
 
 export function ReferencePortfolio() {
   const [introOpen, setIntroOpen] = useState(true);
@@ -91,7 +99,7 @@ export function ReferencePortfolio() {
 
         <section id="skills"><SectionHeading label="Skills & Tech Stack" title={<>Finance-rooted discipline supported by <em>a modern implementation stack.</em></>} /><div className="filters" aria-label="Filter skills">{categories.map((category) => <button key={category} type="button" aria-pressed={activeCategory === category} onClick={() => setActiveCategory(category)}>{category}</button>)}</div><div className="skill-grid">{visibleSkills.map((skill) => <article className="skill-card" key={skill.id}><h3>{skill.name}</h3><p>{skill.evidence}</p></article>)}</div></section>
 
-        <section id="certifications"><SectionHeading label="Certifications" title={<>Verified recognitions collected <em>along the journey.</em></>} /><div className="recognitions">{certificates.filter((item) => item.type?.toLowerCase().includes('certificate') || item.type === 'Digital Marketing Certified').map((item) => <CertificateCard key={item.id} certificate={item} onOpen={() => setSelectedCertificate(item)} />)}</div></section>
+        <section id="certifications"><SectionHeading label="Certifications" title={<>Verified recognitions collected <em>along the journey.</em></>} /><div className="recognitions">{certificates.filter((item) => certificationIds.has(item.id)).map((item) => <CertificateCard key={item.id} certificate={item} onOpen={() => setSelectedCertificate(item)} />)}</div></section>
 
         <section id="projects"><SectionHeading label="Projects · Current Works & Future Ventures" title={<>Work in motion today, and structured space for verified ventures tomorrow.</>} /><div className="project-grid">{works.map((work) => <article className="wide-card" key={work.id}><small>{work.status}</small><h3>{work.title}</h3><p>{work.summary}</p></article>)}</div></section>
 
