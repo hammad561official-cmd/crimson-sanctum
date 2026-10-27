@@ -322,7 +322,7 @@
   .menu-toggle { display: none; min-width: 44px; min-height: 44px; border: 1px solid var(--line); background: transparent; }
   .menu-toggle span { display: block; width: 20px; height: 1px; margin: 5px auto; background: var(--ink); }
   .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: end; overflow: hidden; padding-top: 120px !important; padding-bottom: 75px !important; }
-  .hero-content { position: relative; z-index: 2; width: min(100%, 1152px); margin: 0 auto; }
+  .hero-content { position: relative; z-index: 3; width: min(100%, 1152px); margin: 0 auto; text-shadow: 0 2px 24px rgba(10,9,8,.82); }
   .hero-glow { position: absolute; top: 5%; right: -10%; width: min(65vw, 760px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(220,20,60,.32), transparent 68%); filter: blur(26px); }
   .hero-portrait { position: absolute; z-index: 1; right: -2%; bottom: 0; width: min(64vw, 660px); height: 92%; overflow: hidden; opacity: .84; -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 78%, transparent); mask-image: linear-gradient(to bottom, transparent, black 10%, black 78%, transparent); }
   .hero-portrait::after { position: absolute; inset: 0; content: ''; background: linear-gradient(90deg, var(--bg), transparent 34%), linear-gradient(180deg, var(--bg), transparent 16%, transparent 76%, var(--bg)); }
@@ -357,6 +357,9 @@
   .card::before, .wide-card::before, .skill-card::before, .recognition::before { position: absolute; inset: 0 0 auto; height: 1px; content: ''; background: linear-gradient(90deg, transparent, rgba(224,87,79,.62), transparent); opacity: .7; }
   .card::after, .wide-card::after, .skill-card::after, .recognition::after { position: absolute; top: -40%; right: -25%; width: 75%; height: 75%; border-radius: 50%; content: ''; background: radial-gradient(circle, rgba(255,255,255,.08), transparent 68%); pointer-events: none; }
   .card > *, .wide-card > *, .skill-card > *, .recognition > * { position: relative; z-index: 1; }
+  .rotating-light-card { isolation: isolate; }
+  .rotating-light-card .rotating-light { position: absolute; z-index: 0; top: -160%; left: -160%; width: 420%; height: 420%; background: conic-gradient(from 0deg, transparent 0deg, rgba(224,87,79,.46) 52deg, transparent 104deg, transparent 360deg); animation: rotating-light 11s linear infinite; opacity: .46; pointer-events: none; }
+  .rotating-light-card .rotating-light::after { position: absolute; inset: 25%; border-radius: 50%; content: ''; background: rgba(10,9,8,.56); filter: blur(28px); }
   .card:hover, .wide-card:hover, .skill-card:hover, .recognition:hover { border-color: rgba(224,87,79,.48); background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.035) 46%, rgba(112,12,34,.2)); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), inset 0 -1px 0 rgba(224,87,79,.2), 0 24px 48px rgba(0,0,0,.38), 0 8px 18px rgba(92,10,29,.16); transform: perspective(900px) translateY(-7px) rotateX(1.2deg); }
   .card small, .wide-card small, .recognition small { color: var(--accent); font: 11px 'JetBrains Mono', monospace; text-transform: uppercase; }
   .card h3, .wide-card h3, .skill-card h3, .recognition h3 { margin: 12px 0; font-size: 27px; line-height: 1.15; }
@@ -411,10 +414,11 @@
   .intro-bar b { display: block; width: 100%; height: 100%; background: linear-gradient(90deg,var(--accent),var(--ink)); animation: load 1.15s forwards; transform-origin: left; }
   @keyframes rise { from { opacity: 0; filter: blur(9px); transform: translateY(.5em) rotate(5deg); } to { opacity: 1; filter: blur(0); transform: none; } }
   @keyframes marquee { to { transform: translateX(-50%); } }
+  @keyframes rotating-light { to { transform: rotate(360deg); } }
   @keyframes load { to { width: 100%; } }
   @keyframes intro-out { to { visibility: hidden; opacity: 0; filter: blur(10px); transform: scale(1.04); } }
-  @media (max-width: 900px) { .nav-links { display: none; } .nav-links.open { position: absolute; top: 66px; right: 0; left: 0; display: grid; grid-template-columns: repeat(2,1fr); gap: 4px; padding: 14px 6vw; background: var(--bg); border-bottom: 1px solid var(--line); } .menu-toggle { display: block; } .about-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .reference-site section { padding: 80px 6vw; } .hero { min-height: 100svh; padding-top: 100px !important; } .hero-portrait { right: -16%; width: 108vw; height: 76%; opacity: .72; } .hero-portrait::after { background: linear-gradient(90deg, var(--bg), transparent 23%), linear-gradient(180deg, var(--bg), transparent 12%, transparent 78%, var(--bg)); } .hero-seal { top: 12%; right: -12%; width: 190px; opacity: .4; } .hero-name { font-size: clamp(4rem,20vw,6rem); } .hero-copy { font-size: 18px; } .details { grid-template-columns: 1fr; } .contact-links { flex-wrap: wrap; } }
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-links.open { position: absolute; top: 66px; right: 0; left: 0; display: grid; grid-template-columns: repeat(2,1fr); gap: 4px; padding: 14px 6vw; background: var(--bg); border-bottom: 1px solid var(--line); } .menu-toggle { display: block; } .about-grid { grid-template-columns: 1fr; } .hero-portrait { right: -20%; width: 76vw; height: 72%; opacity: .38; } .hero-portrait::after { background: linear-gradient(90deg, var(--bg) 0%, rgba(10,9,8,.9) 42%, transparent 78%), linear-gradient(180deg, var(--bg), transparent 18%, transparent 72%, var(--bg)); } .hero-content { max-width: 42rem; } }
+  @media (max-width: 640px) { .reference-site section { padding: 80px 6vw; } .hero { min-height: 100svh; padding-top: 100px !important; padding-bottom: 58px !important; } .hero-portrait { right: -42%; width: 125vw; height: 62%; opacity: .24; } .hero-portrait::after { background: linear-gradient(90deg, var(--bg) 0%, rgba(10,9,8,.94) 46%, transparent 88%), linear-gradient(180deg, var(--bg) 0%, transparent 20%, transparent 70%, var(--bg) 100%); } .hero-seal { top: 12%; right: -12%; width: 190px; opacity: .28; } .hero-name { font-size: clamp(4rem,20vw,6rem); } .hero-copy { max-width: 30rem; font-size: 18px; } .details { grid-template-columns: 1fr; } .contact-links { flex-wrap: wrap; } }
 
   .reference-nav {
     min-height: 66px;
